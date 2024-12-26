@@ -21,88 +21,88 @@
 */
 
 public class Services.Preferences : GLib.Object {
-    bool _reset_work_everyday;
-    public bool reset_work_everyday {
-        get {
-            _reset_work_everyday = schema.get_boolean ("reset-work-everyday");
-            return _reset_work_everyday;
-        }
+	bool _reset_work_everyday;
+	public bool reset_work_everyday {
+		get {
+			_reset_work_everyday = schema.get_boolean ("reset-work-everyday");
+			return _reset_work_everyday;
+		}
 
-        set {
-            schema.set_boolean ("reset-work-everyday", value);
-        }
-    }
+		set {
+			schema.set_boolean ("reset-work-everyday", value);
+		}
+	}
 
-    bool _pause_after_break;
-    public bool pause_after_break {
-        get {
-            _pause_after_break = schema.get_boolean ("pause-after-break");
-            return _pause_after_break;
-        }
+	bool _pause_after_break;
+	public bool pause_after_break {
+		get {
+			_pause_after_break = schema.get_boolean ("pause-after-break");
+			return _pause_after_break;
+		}
 
-        set {
-            schema.set_boolean ("pause-after-break", value);
-        }
-    }
+		set {
+			schema.set_boolean ("pause-after-break", value);
+		}
+	}
 
-    bool _auto_stop;
-    public bool auto_stop {
-        get {
-            _auto_stop = schema.get_boolean ("auto-stop");
-            return _auto_stop;
-        }
+	bool _auto_stop;
+	public bool auto_stop {
+		get {
+			_auto_stop = schema.get_boolean ("auto-stop");
+			return _auto_stop;
+		}
 
-        set {
-            schema.set_boolean ("auto-stop", value);
-        }
-    }
+		set {
+			schema.set_boolean ("auto-stop", value);
+		}
+	}
 
-    bool _pomodoro_sound_enabled;
-    public bool pomodoro_sound_enabled {
-        get {
-            _pomodoro_sound_enabled = schema.get_boolean ("pomodoro-sound-enabled");
-            return _pomodoro_sound_enabled;
-        }
+	bool _pomodoro_sound_enabled;
+	public bool pomodoro_sound_enabled {
+		get {
+			_pomodoro_sound_enabled = schema.get_boolean ("pomodoro-sound-enabled");
+			return _pomodoro_sound_enabled;
+		}
 
-        set {
-            schema.set_boolean ("pomodoro-sound-enabled", value);
-        }
-    }
+		set {
+			schema.set_boolean ("pomodoro-sound-enabled", value);
+		}
+	}
 
-    bool _notifications_blocked;
-    public bool notifications_blocked {
-        get {
-            _notifications_blocked = schema.get_boolean ("notifications-blocked");
-            return _notifications_blocked;
-        }
+	bool _notifications_blocked;
+	public bool notifications_blocked {
+		get {
+			_notifications_blocked = schema.get_boolean ("notifications-blocked");
+			return _notifications_blocked;
+		}
 
-        set {
-            schema.set_boolean ("notifications-blocked", value);
-        }
-    }
+		set {
+			schema.set_boolean ("notifications-blocked", value);
+		}
+	}
 
-    bool _debug_mode;
-    public bool debug_mode {
-        get {
-            _debug_mode = schema.get_boolean ("debug-mode");
-            return _debug_mode;
-        }
+	bool _debug_mode;
+	public bool debug_mode {
+		get {
+			_debug_mode = schema.get_boolean ("debug-mode");
+			return _debug_mode;
+		}
 
-        set {
-            schema.set_boolean ("debug-mode", value);
-        }
-    }
+		set {
+			schema.set_boolean ("debug-mode", value);
+		}
+	}
 
-    static GLib.Once<Services.Preferences> _instance;
-    public static unowned Services.Preferences instance () {
-        return _instance.once (() => {
-            return new Services.Preferences ();
-        });
-    }
+	static GLib.Once<Services.Preferences> _instance;
+	public static unowned Services.Preferences instance () {
+		return _instance.once (() => {
+			return new Services.Preferences ();
+		});
+	}
 
-    public GLib.Settings schema;
+	public GLib.Settings schema;
 
-    construct {
-        schema = new GLib.Settings ("io.github.ellie_commons.tomato.preferences");
-    }
+	construct {
+		schema = new GLib.Settings ("io.github.ellie_commons.tomato.preferences");
+	}
 }

@@ -21,39 +21,39 @@
 */
 
 public class Managers.NotificationManager {
-    private SoundManager sound;
-    private Services.SavedState saved;
-    private Services.Preferences preferences;
+	private SoundManager sound;
+	private Services.SavedState saved;
+	private Services.Preferences preferences;
 
-    public NotificationManager () {
-        sound = new SoundManager ();
-        saved = Services.SavedState.instance ();
-        preferences = Services.Preferences.instance ();
-    }
+	public NotificationManager () {
+		sound = new SoundManager ();
+		saved = Services.SavedState.instance ();
+		preferences = Services.Preferences.instance ();
+	}
 
-    public void show_status () {
-        string title, body;
-        if (saved.status == Status.POMODORO) {
-            title = _("Pomodoro Time");
-            body = _("Get back to work!");
-        } else if (saved.status == Status.SHORT_BREAK) {
-            title = _("Short Break");
-            body = _(break_messages[break_messages_index]);
-        } else {
-            title = _("Long Break!");
-            body = _(break_messages[break_messages_index]);
-        }
-        if (preferences.pomodoro_sound_enabled) {
-            sound.play ();
-        }
+	public void show_status () {
+		string title, body;
+		if (saved.status == Status.POMODORO) {
+			title = _("Pomodoro Time");
+			body = _("Get back to work!");
+		} else if (saved.status == Status.SHORT_BREAK) {
+			title = _("Short Break");
+			body = _(break_messages[break_messages_index]);
+		} else {
+			title = _("Long Break!");
+			body = _(break_messages[break_messages_index]);
+		}
+		if (preferences.pomodoro_sound_enabled) {
+			sound.play ();
+		}
 
-        show (title, body);
-    }
+		show (title, body);
+	}
 
-    public void show (string title, string body) {
-        var notification = new GLib.Notification (title);
-        notification.set_body (body);
-        notification.set_icon (new ThemedIcon ("io.github.ellie_commons.tomato"));
-        GLib.Application.get_default ().send_notification ("com.github.tomatoers.tomato", notification);
-    }
+	public void show (string title, string body) {
+		var notification = new GLib.Notification (title);
+		notification.set_body (body);
+		notification.set_icon (new ThemedIcon ("io.github.ellie_commons.tomato"));
+		GLib.Application.get_default ().send_notification ("com.github.tomatoers.tomato", notification);
+	}
 }

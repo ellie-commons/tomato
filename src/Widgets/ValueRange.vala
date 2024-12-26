@@ -21,49 +21,49 @@
 */
 
 public class Widgets.ValueRange : Adw.Bin {
-    public signal void changed ();
+	public signal void changed ();
 
-    //scale object
-    private Gtk.Scale scale;
+	//scale object
+	private Gtk.Scale scale;
 
-    //current value getter and setter methods
-    public int current_value {
-        get {
-            return (int) scale.get_value ();
-        }
+	//current value getter and setter methods
+	public int current_value {
+		get {
+			return (int) scale.get_value ();
+		}
 
-        set {
-            scale.set_value (value);
-        }
-    }
+		set {
+			scale.set_value (value);
+		}
+	}
 
-    //constructor
-    public ValueRange (double min, double max, double step, string? display = null, string? plural = null) {
-        //init scale and add it to this
-        scale = new Gtk.Scale.with_range (Gtk.Orientation.HORIZONTAL, min, max, step) {
-            hexpand = true,
-            draw_value = true
-        };
+	//constructor
+	public ValueRange (double min, double max, double step, string? display = null, string? plural = null) {
+		//init scale and add it to this
+		scale = new Gtk.Scale.with_range (Gtk.Orientation.HORIZONTAL, min, max, step) {
+			hexpand = true,
+			draw_value = true
+		};
 
-        child = scale;
+		child = scale;
 
-        //set optional display string
-        if (display != null) {
-            scale.set_format_value_func ((scale, val) => {
-                if (val == 1) {
-                    return "%.0f %s".printf (val, display);
-                }
-                if (plural != null) {
-                    return "%.0f %s".printf (val, plural);
-                }
-                return "%.0f".printf (val);
-            });
-        }
+		//set optional display string
+		if (display != null) {
+			scale.set_format_value_func ((scale, val) => {
+				if (val == 1) {
+					return "%.0f %s".printf (val, display);
+				}
+				if (plural != null) {
+					return "%.0f %s".printf (val, plural);
+				}
+				return "%.0f".printf (val);
+			});
+		}
 
-        //connect signals so that the scale updates its value on move
-        scale.value_changed.connect (() => {
-            current_value = current_value;
-            changed ();
-        });
-    }
+		//connect signals so that the scale updates its value on move
+		scale.value_changed.connect (() => {
+			current_value = current_value;
+			changed ();
+		});
+	}
 }

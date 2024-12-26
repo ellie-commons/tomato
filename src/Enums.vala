@@ -21,23 +21,23 @@
 */
 
 public enum Status {
-    START,
-    POMODORO,
-    SHORT_BREAK,
-    LONG_BREAK
+	START,
+	POMODORO,
+	SHORT_BREAK,
+	LONG_BREAK
 }
 
 private int break_messages_index = 0;
 private const string[] break_messages = {
-    N_("Go have a coffee"),
-    N_("Drink some water"),
-    N_("Get up and dance!"),
-    N_("Have a break, have a tomato"),
-    N_("Get up! Stand up! Fight for your fingers!"),
-    N_("Take a break, save a life"),
-    N_("Woot! Break time, baby!"),
-    N_("It's coffee time!"),
-    N_("What about a beer?"),
-    N_("Take a walk outside"),
-    N_("Step away from the machine!")
+	N_("Go have a coffee"),
+	N_("Drink some water"),
+	N_("Get up and dance!"),
+	N_("Have a break, have a tomato"),
+	N_("Get up! Stand up! Fight for your fingers!"),
+	N_("Take a break, save a life"),
+	N_("Woot! Break time, baby!"),
+	N_("It's coffee time!"),
+	N_("What about a beer?"),
+	N_("Take a walk outside"),
+	N_("Step away from the machine!")
 };

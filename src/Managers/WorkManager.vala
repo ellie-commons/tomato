@@ -21,139 +21,139 @@
 */
 
 public class Managers.WorkManager : GLib.Object {
-    private Utils.Countdown countdown;
-    private Utils.Timer total_time;
+	private Utils.Countdown countdown;
+	private Utils.Timer total_time;
 
-    int ticks = 1;
-    private Services.SavedState saved;
-    private Services.Settings settings;
-    private Services.Preferences preferences;
+	int ticks = 1;
+	private Services.SavedState saved;
+	private Services.Settings settings;
+	private Services.Preferences preferences;
 
-    static GLib.Once<Managers.WorkManager> _instance;
-    public static unowned Managers.WorkManager instance () {
-        return _instance.once (() => {
-            return new Managers.WorkManager ();
-        });
-    }
+	static GLib.Once<Managers.WorkManager> _instance;
+	public static unowned Managers.WorkManager instance () {
+		return _instance.once (() => {
+			return new Managers.WorkManager ();
+		});
+	}
 
-    construct {
-        saved = Services.SavedState.instance ();
-        settings = Services.Settings.instance ();
-        preferences = Services.Preferences.instance ();
+	construct {
+		saved = Services.SavedState.instance ();
+		settings = Services.Settings.instance ();
+		preferences = Services.Preferences.instance ();
 
-        countdown = new Utils.Countdown ();
-        total_time = new Utils.Timer ();
+		countdown = new Utils.Countdown ();
+		total_time = new Utils.Timer ();
 
-        if (!saved.is_date_today () && preferences.reset_work_everyday) {
-            reset ();
-        } else {
-            set_countdown (saved.countdown);
-            set_total_time (saved.total_time);
-        }
+		if (!saved.is_date_today () && preferences.reset_work_everyday) {
+			reset ();
+		} else {
+			set_countdown (saved.countdown);
+			set_total_time (saved.total_time);
+		}
 
-        saved.update_date ();
-    }
+		saved.update_date ();
+	}
 
-    public int raw_countdown () {
-        return countdown.get_current_time ();
-    }
+	public int raw_countdown () {
+		return countdown.get_current_time ();
+	}
 
-    public string formatted_countdown () {
-        return countdown.get_current_ftime ();
-    }
+	public string formatted_countdown () {
+		return countdown.get_current_ftime ();
+	}
 
-    public string formatted_total_time () {
-        return total_time.get_current_ftime ();
-    }
+	public string formatted_total_time () {
+		return total_time.get_current_ftime ();
+	}
 
-    public void start () {
-        set_status (Status.POMODORO);
-    }
+	public void start () {
+		set_status (Status.POMODORO);
+	}
 
-    public void stop () {
-        set_status (Status.START);
-        message ("New status -> Start");
-    }
+	public void stop () {
+		set_status (Status.START);
+		message ("New status -> Start");
+	}
 
-    public void tick () {
-        saved.countdown = countdown.tick ();
+	public void tick () {
+		saved.countdown = countdown.tick ();
 
-        if (saved.status == Status.POMODORO) {
-            if (ticks == 60) {
-                saved.total_time = total_time.tick ();
-                ticks = 1;
-                message ("+1 minute worked");
-            } else {
-                ticks += 1;
-            }
-        }
-    }
+		if (saved.status == Status.POMODORO) {
+			if (ticks == 60) {
+				saved.total_time = total_time.tick ();
+				ticks = 1;
+				message ("+1 minute worked");
+			} else {
+				ticks += 1;
+			}
+		}
+	}
 
-    public void set_status (Status status) {
-        saved.status = status;
-    }
+	public void set_status (Status status) {
+		saved.status = status;
+	}
 
-    public bool time_is_over () {
-        bool is_over = countdown.is_over ();
-        if (is_over) {
-            if (saved.status == Status.POMODORO)
-                saved.pomodoro_count += 1;
-            update_status ();
-            reset_countdown ();
-        }
-        return is_over;
-    }
+	public bool time_is_over () {
+		bool is_over = countdown.is_over ();
+		if (is_over) {
+			if (saved.status == Status.POMODORO)
+				saved.pomodoro_count += 1;
+			update_status ();
+			reset_countdown ();
+		}
+		return is_over;
+	}
 
-    public void reset () {
-        stop ();
-        ticks = 1;
+	public void reset () {
+		stop ();
+		ticks = 1;
 
-        reset_countdown ();
-        set_total_time (0);
+		reset_countdown ();
+		set_total_time (0);
 
-        saved.pomodoro_count = 0;
-    }
+		saved.pomodoro_count = 0;
+	}
 
-    public void reset_countdown () {
-        switch (saved.status) {
-        case Status.START:
-        case Status.POMODORO:
-            set_countdown (settings.pomodoro_duration * 60);
-            break;
-        case Status.SHORT_BREAK:
-            set_countdown (settings.short_break_duration * 60);
-            break;
-        case Status.LONG_BREAK:
-            set_countdown (settings.long_break_duration * 60);
-            break;
-        }
+	public void reset_countdown () {
+		switch (saved.status) {
+		case Status.START:
+		case Status.POMODORO:
+			set_countdown (settings.pomodoro_duration * 60);
+			break;
+		case Status.SHORT_BREAK:
+			set_countdown (settings.short_break_duration * 60);
+			break;
+		case Status.LONG_BREAK:
+			set_countdown (settings.long_break_duration * 60);
+			break;
+		}
 
-        if (preferences.debug_mode) {
-            set_countdown (10);
-        }
-    }
+		if (preferences.debug_mode) {
+			set_countdown (10);
+		}
+	}
 
-    private void set_countdown (int time) {
-        countdown.set_current_time (time);
-        saved.countdown = time;
-    }
+	private void set_countdown (int time) {
+		countdown.set_current_time (time);
+		saved.countdown = time;
+	}
 
-    private void set_total_time (int time) {
-        total_time.set_current_time (time);
-        saved.total_time = time;
-    }
+	private void set_total_time (int time) {
+		total_time.set_current_time (time);
+		saved.total_time = time;
+	}
 
-    private void update_status () {
-        if (saved.status == Status.POMODORO && saved.pomodoro_count % settings.long_break_delay == 0) {
-            set_status (Status.LONG_BREAK);
-            message ("New status -> Long Break");
-        } else if (saved.status == Status.POMODORO && saved.pomodoro_count % settings.long_break_delay != 0) {
-            set_status (Status.SHORT_BREAK);
-            message ("New status -> Short Break");
-        } else {
-            set_status (Status.POMODORO);
-            message ("New status -> Pomodoro");
-        }
-    }
+	private void update_status () {
+		if (saved.status == Status.POMODORO && saved.pomodoro_count % settings.long_break_delay == 0) {
+			set_status (Status.LONG_BREAK);
+			message ("New status -> Long Break");
+		} else if (saved.status == Status.POMODORO && saved.pomodoro_count % settings.long_break_delay != 0) {
+			set_status (Status.SHORT_BREAK);
+			message ("New status -> Short Break");
+		} else {
+			set_status (Status.POMODORO);
+			message ("New status -> Pomodoro");
+		}
+	}
 
 }
