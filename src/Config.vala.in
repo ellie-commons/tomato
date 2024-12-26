@@ -1,0 +1,12 @@
+namespace Build {
+    public const string GETTEXT_PACKAGE = @GETTEXT_PACKAGE@;
+    public const string LOCALEDIR = @LOCALEDIR@;
+}
+
+
+namespace Default {
+	public const int POMODORO_DURATION = 25;
+    public const int SHORT_BREAK_DURATION = 5;
+    public const int LONG_BREAK_DURATION = 15;
+    public const int LONG_BREAK_DELAY = 4;
+}

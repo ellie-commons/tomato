@@ -1,0 +1,31 @@
+@define-color colorPrimary #8ea5af;
+
+headerbar .title,
+headerbar .menu,
+headerbar .close {
+    color: #ffffff;
+    background: transparent;
+}
+
+.main-window {
+    background: @colorPrimary;
+}
+
+.pomodoro-button {
+    color: #fff;
+    background-color: @colorPrimary;
+    border: 1px solid darker(@colorPrimary);
+    transition: all 200ms ease-in-out;
+}
+
+.countdown {
+    color: #ffffff;
+    font-size: 48px;
+    font-family: Open Sans Light;
+}
+
+.total-time {
+    color: #ffffff;
+    font-size: 14px;
+    font-family: Open Sans Light;
+}
