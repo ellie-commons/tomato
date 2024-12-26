@@ -7,7 +7,9 @@
 </div>
 
 
-![Screenshot](https://github.com/ellie-commons/tomato/blob/main/data/screenshot.png?raw=true)
+<p align="center">
+  <img src="https://github.com/ellie-commons/tomato/blob/main/data/screenshot.png?raw=true" alt="Screenshot">
+</p>
 
 ## Keep focused on your work
 
