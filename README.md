@@ -44,7 +44,7 @@ To install, use `ninja install`, then execute with `io.github.ellie_commons.toma
 
 ```shell
 ninja install
-io.github.ellie_commons.app-generator
+io.github.ellie_commons.tomato
 ```
 
 ## Flatpak
