@@ -21,58 +21,58 @@
 */
 
 public class Managers.LauncherManager : GLib.Object {
-	public Managers.WorkManager work { get; construct; }
+    public Managers.WorkManager work { get; construct; }
 
-	private Services.SavedState saved;
-	private Services.Settings settings;
+    private Services.SavedState saved;
+    private Services.Settings settings;
 
-	public LauncherManager (Managers.WorkManager work) {
-		Object (work: work);
-	}
+    public LauncherManager (Managers.WorkManager work) {
+        Object (work: work);
+    }
 
-	construct {
-		saved = Services.SavedState.instance ();
-		settings = Services.Settings.instance ();
+    construct {
+        saved = Services.SavedState.instance ();
+        settings = Services.Settings.instance ();
 
-		update_progress ();
-	}
+        update_progress ();
+    }
 
-	public void update_progress () {
-		double duration;
-		if (saved.status == Status.SHORT_BREAK) {
-			duration = settings.short_break_duration * 60.0;
-		} else if (saved.status == Status.LONG_BREAK) {
-			duration = settings.long_break_duration * 60.0;
-		} else {
-			duration = settings.pomodoro_duration * 60.0;
-		}
+    public void update_progress () {
+        double duration;
+        if (saved.status == Status.SHORT_BREAK) {
+            duration = settings.short_break_duration * 60.0;
+        } else if (saved.status == Status.LONG_BREAK) {
+            duration = settings.long_break_duration * 60.0;
+        } else {
+            duration = settings.pomodoro_duration * 60.0;
+        }
 
-		Granite.Services.Application.set_progress.begin (1 - work.raw_countdown () / duration, (obj, res) => {
-			try {
-				Granite.Services.Application.set_progress.end (res);
-			} catch (GLib.Error e) {
-				critical (e.message);
-			}
-		});
-	}
+        Granite.Services.Application.set_progress.begin (1 - work.raw_countdown () / duration, (obj, res) => {
+            try {
+                Granite.Services.Application.set_progress.end (res);
+            } catch (GLib.Error e) {
+                critical (e.message);
+            }
+        });
+    }
 
-	public void show_progress () {
-		Granite.Services.Application.set_progress_visible.begin (true, (obj, res) => {
-			try {
-				Granite.Services.Application.set_progress_visible.end (res);
-			} catch (GLib.Error e) {
-				critical (e.message);
-			}
-		});
-	}
+    public void show_progress () {
+        Granite.Services.Application.set_progress_visible.begin (true, (obj, res) => {
+            try {
+                Granite.Services.Application.set_progress_visible.end (res);
+            } catch (GLib.Error e) {
+                critical (e.message);
+            }
+        });
+    }
 
-	public void hide_progress () {
-		Granite.Services.Application.set_progress_visible.begin (false, (obj, res) => {
-			try {
-				Granite.Services.Application.set_progress_visible.end (res);
-			} catch (GLib.Error e) {
-				critical (e.message);
-			}
-		});
-	}
+    public void hide_progress () {
+        Granite.Services.Application.set_progress_visible.begin (false, (obj, res) => {
+            try {
+                Granite.Services.Application.set_progress_visible.end (res);
+            } catch (GLib.Error e) {
+                critical (e.message);
+            }
+        });
+    }
 }

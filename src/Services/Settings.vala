@@ -21,64 +21,64 @@
 */
 
 public class Services.Settings : GLib.Object {
-	int _pomodoro_duration;
-	public int pomodoro_duration {
-		get {
-			_pomodoro_duration = schema.get_int ("pomodoro-duration");
-			return _pomodoro_duration;
-		}
+    int _pomodoro_duration;
+    public int pomodoro_duration {
+        get {
+            _pomodoro_duration = schema.get_int ("pomodoro-duration");
+            return _pomodoro_duration;
+        }
 
-		set {
-			schema.set_int ("pomodoro-duration", value);
-		}
-	}
+        set {
+            schema.set_int ("pomodoro-duration", value);
+        }
+    }
 
-	int _short_break_duration;
-	public int short_break_duration {
-		get {
-			_short_break_duration = schema.get_int ("short-break-duration");
-			return _short_break_duration;
-		}
+    int _short_break_duration;
+    public int short_break_duration {
+        get {
+            _short_break_duration = schema.get_int ("short-break-duration");
+            return _short_break_duration;
+        }
 
-		set {
-			schema.set_int ("short-break-duration", value);
-		}
-	}
+        set {
+            schema.set_int ("short-break-duration", value);
+        }
+    }
 
-	int _long_break_duration;
-	public int long_break_duration {
-		get {
-			_long_break_duration = schema.get_int ("long-break-duration");
-			return _long_break_duration;
-		}
+    int _long_break_duration;
+    public int long_break_duration {
+        get {
+            _long_break_duration = schema.get_int ("long-break-duration");
+            return _long_break_duration;
+        }
 
-		set {
-			schema.set_int ("long-break-duration", value);
-		}
-	}
+        set {
+            schema.set_int ("long-break-duration", value);
+        }
+    }
 
-	int _long_break_delay;
-	public int long_break_delay {
-		get {
-			_long_break_delay = schema.get_int ("long-break-delay");
-			return _long_break_delay;
-		}
+    int _long_break_delay;
+    public int long_break_delay {
+        get {
+            _long_break_delay = schema.get_int ("long-break-delay");
+            return _long_break_delay;
+        }
 
-		set {
-			schema.set_int ("long-break-delay", value);
-		}
-	}
+        set {
+            schema.set_int ("long-break-delay", value);
+        }
+    }
 
-	static GLib.Once<Services.Settings> _instance;
-	public static unowned Services.Settings instance () {
-		return _instance.once (() => {
-			return new Services.Settings ();
-		});
-	}
+    static GLib.Once<Services.Settings> _instance;
+    public static unowned Services.Settings instance () {
+        return _instance.once (() => {
+            return new Services.Settings ();
+        });
+    }
 
-	public GLib.Settings schema;
+    public GLib.Settings schema;
 
-	construct {
-		schema = new GLib.Settings ("io.github.ellie_commons.tomato.settings");
-	}
+    construct {
+        schema = new GLib.Settings ("io.github.ellie_commons.tomato.settings");
+    }
 }

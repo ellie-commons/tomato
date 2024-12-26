@@ -21,54 +21,54 @@
 */
 
 public class Tomato : Gtk.Application {
-	public MainWindow main_window;
+    public MainWindow main_window;
 
-	public Tomato () {
-		Object (
-			application_id: "io.github.ellie_commons.tomato",
-			flags: ApplicationFlags.FLAGS_NONE
-		);
-	}
+    public Tomato () {
+        Object (
+            application_id: "io.github.ellie_commons.tomato",
+            flags: ApplicationFlags.FLAGS_NONE
+        );
+    }
 
-	protected override void startup () {
-		base.startup ();
+    protected override void startup () {
+        base.startup ();
 
-		Granite.init ();
+        Granite.init ();
 
-		Intl.setlocale (LocaleCategory.ALL, "");
-		Intl.bindtextdomain (Build.GETTEXT_PACKAGE, Build.LOCALEDIR);
-		Intl.bind_textdomain_codeset (Build.GETTEXT_PACKAGE, "UTF-8");
-		Intl.textdomain (Build.GETTEXT_PACKAGE);
+        Intl.setlocale (LocaleCategory.ALL, "");
+        Intl.bindtextdomain (Build.GETTEXT_PACKAGE, Build.LOCALEDIR);
+        Intl.bind_textdomain_codeset (Build.GETTEXT_PACKAGE, "UTF-8");
+        Intl.textdomain (Build.GETTEXT_PACKAGE);
 
-		var quit_action = new SimpleAction ("quit", null);
+        var quit_action = new SimpleAction ("quit", null);
 
-		add_action (quit_action);
-		set_accels_for_action ("app.quit", {"<Control>q"});
+        add_action (quit_action);
+        set_accels_for_action ("app.quit", {"<Control>q"});
 
-		quit_action.activate.connect (quit);
-	}
+        quit_action.activate.connect (quit);
+    }
 
-	protected override void activate () {
-		if (main_window != null) {
-			main_window.present ();
-			return;
-		}
+    protected override void activate () {
+        if (main_window != null) {
+            main_window.present ();
+            return;
+        }
 
-		var main_window = new MainWindow (this);
+        var main_window = new MainWindow (this);
 
-		// Use Css
-		var provider = new Gtk.CssProvider ();
-		provider.load_from_resource ("/io/github/ellie_commons/tomato/Application.css");
+        // Use Css
+        var provider = new Gtk.CssProvider ();
+        provider.load_from_resource ("/io/github/ellie_commons/tomato/Application.css");
 
-		Gtk.StyleContext.add_provider_for_display (
-			Gdk.Display.get_default (),
-			provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
-		);
+        Gtk.StyleContext.add_provider_for_display (
+            Gdk.Display.get_default (),
+            provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+        );
 
-		main_window.present ();
-	}
+        main_window.present ();
+    }
 
-	public static int main (string[] args) {
-		return new Tomato ().run (args);
-	}
+    public static int main (string[] args) {
+        return new Tomato ().run (args);
+    }
 }

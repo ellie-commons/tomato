@@ -21,85 +21,85 @@
 */
 
 public class Services.SavedState : GLib.Object {
-	string _date;
-	public string date {
-		get {
-			_date = schema.get_string ("date");
-			return _date;
-		}
+    string _date;
+    public string date {
+        get {
+            _date = schema.get_string ("date");
+            return _date;
+        }
 
-		set {
-			schema.set_string ("date", value);
-		}
-	}
+        set {
+            schema.set_string ("date", value);
+        }
+    }
 
-	Status _status;
-	public Status status {
-		get {
-			_status = (Status) schema.get_enum ("status");
-			return _status;
-		}
+    Status _status;
+    public Status status {
+        get {
+            _status = (Status) schema.get_enum ("status");
+            return _status;
+        }
 
-		set {
-			schema.set_enum ("status", value);
-		}
-	}
+        set {
+            schema.set_enum ("status", value);
+        }
+    }
 
-	int _countdown;
-	public int countdown {
-		get {
-			_countdown = schema.get_int ("countdown");
-			return _countdown;
-		}
+    int _countdown;
+    public int countdown {
+        get {
+            _countdown = schema.get_int ("countdown");
+            return _countdown;
+        }
 
-		set {
-			schema.set_int ("countdown", value);
-		}
-	}
+        set {
+            schema.set_int ("countdown", value);
+        }
+    }
 
-	int _total_time;
-	public int total_time {
-		get {
-			_total_time = schema.get_int ("total-time");
-			return _total_time;
-		}
+    int _total_time;
+    public int total_time {
+        get {
+            _total_time = schema.get_int ("total-time");
+            return _total_time;
+        }
 
-		set {
-			schema.set_int ("total-time", value);
-		}
-	}
+        set {
+            schema.set_int ("total-time", value);
+        }
+    }
 
-	int _pomodoro_count;
-	public int pomodoro_count {
-		get {
-			_pomodoro_count = schema.get_int ("pomodoro-count");
-			return _pomodoro_count;
-		}
+    int _pomodoro_count;
+    public int pomodoro_count {
+        get {
+            _pomodoro_count = schema.get_int ("pomodoro-count");
+            return _pomodoro_count;
+        }
 
-		set {
-			schema.set_int ("pomodoro-count", value);
-		}
-	}
+        set {
+            schema.set_int ("pomodoro-count", value);
+        }
+    }
 
-	public bool is_date_today () {
-		var dt = new DateTime.now_local ();
-		return date == dt.format ("%Y-%m-%d");
-	}
+    public bool is_date_today () {
+        var dt = new DateTime.now_local ();
+        return date == dt.format ("%Y-%m-%d");
+    }
 
-	public void update_date () {
-		date = (new DateTime.now_local ()).format ("%Y-%m-%d");
-	}
+    public void update_date () {
+        date = (new DateTime.now_local ()).format ("%Y-%m-%d");
+    }
 
-	static GLib.Once<Services.SavedState> _instance;
-	public static unowned Services.SavedState instance () {
-		return _instance.once (() => {
-			return new Services.SavedState ();
-		});
-	}
+    static GLib.Once<Services.SavedState> _instance;
+    public static unowned Services.SavedState instance () {
+        return _instance.once (() => {
+            return new Services.SavedState ();
+        });
+    }
 
-	public GLib.Settings schema;
+    public GLib.Settings schema;
 
-	construct {
-		schema = new GLib.Settings ("io.github.ellie_commons.tomato.saved");
-	}
+    construct {
+        schema = new GLib.Settings ("io.github.ellie_commons.tomato.saved");
+    }
 }
