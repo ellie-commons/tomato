@@ -1,12 +1,12 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
 
 <div align="center">
-  <span align="center"> <img width="128" height="128" class="center" src="data/icons/128.svg" alt="Tomato Icon"></span>
+  <span align="center"> <img width="128" height="128" class="center" src="data/icons/128.png" alt="Tomato Icon"></span>
   <h1 align="center">Tomato</h1>
   <h3 align="center">A simple, usable, and efficient pomodoro app designed for elementary OS</h3>
 </div>
 
-![Screenshot](https://raw.githubusercontent.com/ellie-commons/app-generator/refs/heads/main/data/io.github.ellie_commons.app-generator.png)
+![Screenshot](https://github.com/ellie-commons/tomato/blob/main/data/screenshot.png?raw=true)
 
 ## Keep focused on your work
 
