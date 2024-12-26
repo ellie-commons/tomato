@@ -1,18 +1,14 @@
-# project name and programming language
 project(
   'io.github.ellie_commons.tomato',
   'vala', 'c',
-  version: '0.1'
+  version: '3.0'
 )
 
-# Include Gnome and the translations module
 gnome = import('gnome')
 i18n = import('i18n')
 
-# Set our translation domain
 add_global_arguments('-DGETTEXT_PACKAGE="@0@"'.format (meson.project_name()), language:'c')
 
-## Set de config data
 config_data = configuration_data()
 config_data.set_quoted('LOCALEDIR', get_option('prefix') / get_option('localedir'))
 config_data.set_quoted('GETTEXT_PACKAGE', meson.project_name())
@@ -29,7 +25,6 @@ gresource = gnome.compile_resources(
     c_name: 'as'
 )
 
-# List the dependencies we need
 deps = [
     dependency('granite-7'),
     dependency('gtk4'),
@@ -37,7 +32,6 @@ deps = [
     dependency('libcanberra'),
 ]
 
-# Create a new executable, list the files we want to compile, and install
 executable(
     meson.project_name(),
     config_file,

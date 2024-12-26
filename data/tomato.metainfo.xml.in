@@ -1,103 +1,126 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop">
-	<id>io.github.ellie_commons.tomato.desktop</id>
-	<metadata_license>CC0</metadata_license>
-	<project_license>GPL-2</project_license>
-	<name>Tomato</name>
-	<summary>Keep focused on your work</summary>
-	<description>
-		<p>Tomato is a clean, easy-to-use time manager based on Pomodoro technique. It breaks down work into intervals to keep you focused and allows you to rest during strategic periods to reward your progress. It is a must-have app if you need to avoid procrastination.</p>
-	</description>
-	<screenshots>
-		<screenshot type="default">
-			<caption>Pomodoro time</caption>
-			<image>https://raw.githubusercontent.com/tomatoers/tomato/master/data/screenshots/pomodoro.png</image>
-		</screenshot>
-		<screenshot>
-			<caption>Start page</caption>
-			<image>https://raw.githubusercontent.com/tomatoers/tomato/master/data/screenshots/start.png</image>
-		</screenshot>
-		<screenshot>
-			<caption>Short break time</caption>
-			<image>https://raw.githubusercontent.com/tomatoers/tomato/master/data/screenshots/break.png</image>
-		</screenshot>
-	</screenshots>
-	<developer_name>Tomatoers</developer_name>
-	<url type="homepage">https://github.com/tomatoers/tomato</url>
-	<url type="bugtracker">https://github.com/tomatoers/tomato/issues</url>
-	<url type="help">https://github.com/tomatoers/tomato/issues</url>
-	<update_contact>c@ssidyjam.es</update_contact>
-	<custom>
-		<value key="x-appcenter-color-primary">#fff</value>
-		<value key="x-appcenter-color-primary-text">#000</value>
-	</custom>
-	<provides>
-		<binary>io.github.ellie_commons.tomato</binary>
-	</provides>
-	<releases>
-		<release version="2.0.2" urgency="medium" date="2017-06-05">
-			<description>
-				<ul>
-					<li>Updated URLs</li>
-				</ul>
-			</description>
-		</release>
-		<release version="2.0.1" urgency="medium" date="2017-06-04">
-			<description>
-				<ul>
-					<li>Solved app center issues</li>
-				</ul>
-			</description>
-		</release>
-		<release version="2.0.0" urgency="medium" date="2017-06-02">
-			<description>
-				<ul>
-					<li>UI redesign</li>
-					<li>Bug fixes</li>
-				</ul>
-			</description>
-		</release>
-		<release version="1.2.8" urgency="medium" date="2017-04-29">
-			<description>
-				<ul>
-					<li>Changed screenshots</li>
-					<li>Improved internationalization</li>
-					<li>Fixed minor bugs</li>
-				</ul>
-			</description>
-		</release>
-		<release version="1.2.7" urgency="medium" date="2017-04-11">
-			<description>
-				<ul>
-					<li>Fixed minor bugs</li>
-				</ul>
-			</description>
-		</release>
-		<release version="1.2.6" urgency="medium" date="2017-04-10">
-			<description>
-				<ul>
-					<li>Fixed minor bugs</li>
-				</ul>
-			</description>
-		</release>
-		<release version="1.2.5" urgency="medium" date="2017-04-08"/>
-		<release version="1.2.4" urgency="medium" date="2017-04-08">
-			<description>
-				<ul>
-					<li>Revamped icons</li>
-					<li>Fixed minor bugs</li>
-				</ul>
-			</description>
-		</release>
-		<release version="1.2.3" urgency="medium" date="2017-04-06"/>
-		<release version="1.2.2" urgency="medium" date="2017-04-06">
-			<description>
-				<ul>
-					<li>Notification when the app is auto stopped</li>
-					<li>Users can access preferences when the app is in break time</li>
-					<li>Integration with AppCenter</li>
-				</ul>
-			</description>
-		</release>
-	</releases>
+  <id>io.github.ellie_commons.tomato</id>
+  <launchable type="desktop-id">io.github.ellie_commons.tomato.desktop</launchable>
+  <translation type="gettext">io.github.ellie_commons.tomato</translation>
+  <metadata_license>CC0</metadata_license>
+  <project_license>GPL-2</project_license>
+
+  <name translate="no">Tomato</name>
+  <summary>Keep focused on your work</summary>
+  <description>
+    <p>Tomato is a clean, easy-to-use time manager based on Pomodoro technique. It breaks down work into intervals to keep you focused and allows you to rest during strategic periods to reward your progress. It is a must-have app if you need to avoid procrastination.</p>
+  </description>
+  
+  <screenshots>
+    <screenshot type="default">
+      <caption>Pomodoro time</caption>
+      <image>https://raw.githubusercontent.com/tomatoers/tomato/master/data/screenshots/pomodoro.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>Start page</caption>
+      <image>https://raw.githubusercontent.com/tomatoers/tomato/master/data/screenshots/start.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>Short break time</caption>
+      <image>https://raw.githubusercontent.com/tomatoers/tomato/master/data/screenshots/break.png</image>
+    </screenshot>
+  </screenshots>
+  
+  <content_rating type="oars-1.1" />
+  
+  <provides>
+    <binary>io.github.ellie_commons.tomato</binary>
+  </provides>
+  
+  <url type="homepage">https://github.com/ellie-commons/tomato/tomato</url>
+  <url type="bugtracker">https://github.com/ellie-commons/tomato/tomato/issues</url>
+  <url type="help">https://github.com/ellie-commons/tomato/tomato/issues</url>
+  
+  <branding>
+    <color type="primary" scheme_preference="light">#f9f06b</color>
+    <color type="primary" scheme_preference="dark">#9141ac</color>
+  </branding>
+  
+  <developer id="io.github.ellie_commons">
+    <name>elementary Commons</name>
+  </developer>
+  <update_contact>alainmh23@gmail.com</update_contact>
+
+  <releases>
+  	<release version="3.0" urgency="medium" date="2024-12-42">
+      <description>
+        <ul>
+          <li>Code ported to GTK4</li>
+		  <li>Packaged as a Flatpak</li>
+		  <li>Performance improvements and bug fixes</li>
+        </ul>
+      </description>
+    </release>
+
+    <release version="2.0.2" urgency="medium" date="2017-06-05">
+      <description>
+        <ul>
+          <li>Updated URLs</li>
+        </ul>
+      </description>
+    </release>
+    <release version="2.0.1" urgency="medium" date="2017-06-04">
+      <description>
+        <ul>
+          <li>Solved app center issues</li>
+        </ul>
+      </description>
+    </release>
+    <release version="2.0.0" urgency="medium" date="2017-06-02">
+      <description>
+        <ul>
+          <li>UI redesign</li>
+          <li>Bug fixes</li>
+        </ul>
+      </description>
+    </release>
+    <release version="1.2.8" urgency="medium" date="2017-04-29">
+      <description>
+        <ul>
+          <li>Changed screenshots</li>
+          <li>Improved internationalization</li>
+          <li>Fixed minor bugs</li>
+        </ul>
+      </description>
+    </release>
+    <release version="1.2.7" urgency="medium" date="2017-04-11">
+      <description>
+        <ul>
+          <li>Fixed minor bugs</li>
+        </ul>
+      </description>
+    </release>
+    <release version="1.2.6" urgency="medium" date="2017-04-10">
+      <description>
+        <ul>
+          <li>Fixed minor bugs</li>
+        </ul>
+      </description>
+    </release>
+    <release version="1.2.5" urgency="medium" date="2017-04-08" />
+    <release version="1.2.4" urgency="medium" date="2017-04-08">
+      <description>
+        <ul>
+          <li>Revamped icons</li>
+          <li>Fixed minor bugs</li>
+        </ul>
+      </description>
+    </release>
+    <release version="1.2.3" urgency="medium" date="2017-04-06" />
+    <release version="1.2.2" urgency="medium" date="2017-04-06">
+      <description>
+        <ul>
+          <li>Notification when the app is auto stopped</li>
+          <li>Users can access preferences when the app is in break time</li>
+          <li>Integration with AppCenter</li>
+        </ul>
+      </description>
+    </release>
+  </releases>
 </component>

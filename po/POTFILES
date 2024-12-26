@@ -1,2 +1,14 @@
 src/Application.vala
 src/MainWindow.vala
+src/Enums.vala
+src/Services/SavedState.vala
+src/Services/Settings.vala
+src/Services/Preferences.vala
+src/Utils/Countdown.vala
+src/Utils/Timer.vala
+src/Managers/WorkManager.vala
+src/Managers/SoundManager.vala
+src/Managers/NotificationManager.vala
+src/Managers/LauncherManager.vala
+src/Dialogs/PreferencesDialog.vala
+src/Widgets/ValueRange.vala

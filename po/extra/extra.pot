@@ -1,0 +1,103 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the extra package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: extra\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-12-26 11:28-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: data/tomato.metainfo.xml.in:6 data/tomato.desktop.in:4
+msgid "Tomato"
+msgstr ""
+
+#: data/tomato.metainfo.xml.in:7 data/tomato.desktop.in:5
+msgid "Keep focused on your work"
+msgstr ""
+
+#: data/tomato.metainfo.xml.in:9
+msgid ""
+"Tomato is a clean, easy-to-use time manager based on Pomodoro technique. It "
+"breaks down work into intervals to keep you focused and allows you to rest "
+"during strategic periods to reward your progress. It is a must-have app if "
+"you need to avoid procrastination."
+msgstr ""
+
+#: data/tomato.metainfo.xml.in:13
+msgid "Pomodoro time"
+msgstr ""
+
+#: data/tomato.metainfo.xml.in:17
+msgid "Start page"
+msgstr ""
+
+#: data/tomato.metainfo.xml.in:21
+msgid "Short break time"
+msgstr ""
+
+#: data/tomato.metainfo.xml.in:25
+msgid "Tomatoers"
+msgstr ""
+
+#: data/tomato.metainfo.xml.in:41
+msgid "Updated URLs"
+msgstr ""
+
+#: data/tomato.metainfo.xml.in:48
+msgid "Solved app center issues"
+msgstr ""
+
+#: data/tomato.metainfo.xml.in:55
+msgid "UI redesign"
+msgstr ""
+
+#: data/tomato.metainfo.xml.in:56
+msgid "Bug fixes"
+msgstr ""
+
+#: data/tomato.metainfo.xml.in:63
+msgid "Changed screenshots"
+msgstr ""
+
+#: data/tomato.metainfo.xml.in:64
+msgid "Improved internationalization"
+msgstr ""
+
+#: data/tomato.metainfo.xml.in:65 data/tomato.metainfo.xml.in:72
+#: data/tomato.metainfo.xml.in:79 data/tomato.metainfo.xml.in:88
+msgid "Fixed minor bugs"
+msgstr ""
+
+#: data/tomato.metainfo.xml.in:87
+msgid "Revamped icons"
+msgstr ""
+
+#: data/tomato.metainfo.xml.in:96
+msgid "Notification when the app is auto stopped"
+msgstr ""
+
+#: data/tomato.metainfo.xml.in:97
+msgid "Users can access preferences when the app is in break time"
+msgstr ""
+
+#: data/tomato.metainfo.xml.in:98
+msgid "Integration with AppCenter"
+msgstr ""
+
+#: data/tomato.desktop.in:6
+msgid "Pomodoro App"
+msgstr ""
+
+#: data/tomato.desktop.in:12
+msgid "Pomodoro;Time;Productivity;Tomato;"
+msgstr ""
