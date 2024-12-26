@@ -15,15 +15,15 @@
   <screenshots>
     <screenshot type="default">
       <caption>Pomodoro time</caption>
-      <image>https://raw.githubusercontent.com/tomatoers/tomato/master/data/screenshots/pomodoro.png</image>
+      <image>https://raw.githubusercontent.com/ellie-commons/tomato/master/data/screenshots/pomodoro.png</image>
     </screenshot>
     <screenshot>
       <caption>Start page</caption>
-      <image>https://raw.githubusercontent.com/tomatoers/tomato/master/data/screenshots/start.png</image>
+      <image>https://raw.githubusercontent.com/ellie-commons/tomato/master/data/screenshots/start.png</image>
     </screenshot>
     <screenshot>
       <caption>Short break time</caption>
-      <image>https://raw.githubusercontent.com/tomatoers/tomato/master/data/screenshots/break.png</image>
+      <image>https://raw.githubusercontent.com/ellie-commons/tomato/master/data/screenshots/break.png</image>
     </screenshot>
   </screenshots>
   
@@ -38,8 +38,8 @@
   <url type="help">https://github.com/ellie-commons/tomato/tomato/issues</url>
   
   <branding>
-    <color type="primary" scheme_preference="light">#f9f06b</color>
-    <color type="primary" scheme_preference="dark">#9141ac</color>
+    <color type="primary" scheme_preference="light">#ff8c82</color>
+    <color type="primary" scheme_preference="dark">#7a0000</color>
   </branding>
   
   <developer id="io.github.ellie_commons">
