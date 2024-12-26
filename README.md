@@ -1,12 +1,12 @@
-<p align="center">
-  <img src="data/icons/128x128/apps/com.github.tomatoers.tomato.png?raw=true" alt="Icon" />
-</p>
-<h1 align="center">Tomato</h1>
-<p align="center">
-  <a href="https://appcenter.elementary.io/com.github.tomatoers.tomato"><img src="https://appcenter.elementary.io/badge.svg" alt="Get it on AppCenter" /></a>
-</p>
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
 
-![Screenshot](data/screenshots/pomodoro.png?raw=true)
+<div align="center">
+  <span align="center"> <img width="128" height="128" class="center" src="data/icons/128.svg" alt="Tomato Icon"></span>
+  <h1 align="center">Tomato</h1>
+  <h3 align="center">A simple, usable, and efficient pomodoro app designed for elementary OS</h3>
+</div>
+
+![Screenshot](https://raw.githubusercontent.com/ellie-commons/app-generator/refs/heads/main/data/io.github.ellie_commons.app-generator.png)
 
 ## Keep focused on your work
 
@@ -16,7 +16,7 @@ Tomato is a clean, easy-to-use time manager based on Pomodoro technique. It brea
 
 Tomato is designed and developed on and for [elementary OS](https://elementary.io). Installing via AppCenter ensures instant updates straight from us. Get it on AppCenter for the best experience.
 
-[![Get it on AppCenter](https://appcenter.elementary.io/badge.svg?new)](https://appcenter.elementary.io/com.github.tomatoers.tomato)
+[![Get it on AppCenter](https://appcenter.elementary.io/badge.svg?new)](https://appcenter.elementary.io/io.github.ellie_commons.tomato)
 
 Versions of Tomato may have been built and made available elsewhere by third-parties. These builds may have modifications or changes and **are not provided nor supported by us**. The only supported version is distributed via AppCenter on elementary OS.
 
@@ -24,35 +24,43 @@ Versions of Tomato may have been built and made available elsewhere by third-par
 
 If you want to hack on and build Tomato yourself, you'll need the following dependencies:
 
-- gtk3
-- granite
+- gtk4
+- granite-7
+- libadwaita-1
 - libcanberra
-- libunity
 
-Create a `build` directory
+Run meson `build` to configure the build environment. Change to the build directory and run ninja to build
 
 ```shell
-mkdir build
+meson build --prefix=/usr
 cd build
+ninja
 ```
 
-Use `cmake` to configure the build environment and run `make` to build
+To install, use `ninja install`, then execute with `io.github.ellie_commons.tomato`
 
 ```shell
-cmake -DCMAKE_INSTALL_PREFIX=/usr ../
-make
+ninja install
+io.github.ellie_commons.app-generator
 ```
 
-To install, use `make install`, then execute with `com.github.tomatoers.tomato`
+## Flatpak
 
-```shell
-sudo make install
-com.github.tomatoers.tomato
+Run `flatpak-builder` to configure the build environment, download dependencies, build, and install
+
+```bash
+flatpak-builder build io.github.ellie_commons.tomato.yml --user --install --force-clean --install-deps-from=appcenter
 ```
 
-# Do you want to contribute?
+Then execute with
 
-Tomato is open source. You can contribute by reporting/fixing [bugs](https://github.com/tomatoers/tomato/issues) or proposing/implementing new [features](https://github.com/tomatoers/tomato/issues).
+```bash
+flatpak run io.github.ellie_commons.tomato
+```
+
+## Do you want to contribute?
+
+Tomato is open source. You can contribute by reporting/fixing [bugs](https://github.com/ellie-commons/tomato/issues) or proposing/implementing new [features](https://github.com/ellie-commons/tomato/issues).
 
 Before getting started, read the following guidelines:
 
