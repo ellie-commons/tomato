@@ -6,6 +6,7 @@
   <h3 align="center">A simple, usable, and efficient pomodoro app designed for elementary OS</h3>
 </div>
 
+
 ![Screenshot](https://github.com/ellie-commons/tomato/blob/main/data/screenshot.png?raw=true)
 
 ## Keep focused on your work
@@ -66,3 +67,9 @@ Before getting started, read the following guidelines:
 
 - elementary OS [HIG](https://elementary.io/docs/human-interface-guidelines#human-interface-guidelines)
 - elementary OS [developer guide](https://elementary.io/docs/code/getting-started#developer-sdk)
+
+## Credits
+
+This project was originally created by [Luiz Augusto Morais](https://github.com/luizaugustomm). His work and initial vision were fundamental to the development of Tomato.
+
+A big thanks to Luiz for his contribution to the open-source ecosystem!
