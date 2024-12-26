@@ -28,7 +28,7 @@ public enum Status {
 }
 
 private int break_messages_index = 0;
-private const string[] break_messages = {
+private const string[] break_messages = { // vala-lint=naming-convention
     N_("Go have a coffee"),
     N_("Drink some water"),
     N_("Get up and dance!"),

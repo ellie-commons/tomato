@@ -236,7 +236,7 @@ public class Dialogs.PreferencesDialog : Granite.Dialog {
             sensitive = true;
         } else if (long_break_scale.current_value != Default.LONG_BREAK_DURATION) {
             sensitive = true;
-        } else if (long_break_delay_scale.current_value != Default.LONG_BREAK_DELAY)  {
+        } else if (long_break_delay_scale.current_value != Default.LONG_BREAK_DELAY) {
             sensitive = true;
         }
 
