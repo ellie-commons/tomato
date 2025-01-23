@@ -48,7 +48,7 @@
   <update_contact>alainmh23@gmail.com</update_contact>
 
   <releases>
-  	<release version="3.0" urgency="medium" date="2024-12-42">
+  	<release version="3.0" urgency="medium" date="2025-01-23">
       <description>
         <ul>
           <li>Code ported to GTK4</li>
