@@ -12,4 +12,3 @@ Keywords=Pomodoro;Time;Productivity;Tomato;
 StartupNotify=true
 X-GNOME-Gettext-Domain=io.github.ellie_commons.tomato
 X-GNOME-UsesNotifications=true
-Actions=AboutDialog;
