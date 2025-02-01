@@ -41,11 +41,21 @@ public class Tomato : Gtk.Application {
         Intl.textdomain (Build.GETTEXT_PACKAGE);
 
         var quit_action = new SimpleAction ("quit", null);
-
-        add_action (quit_action);
-        set_accels_for_action ("app.quit", {"<Control>q"});
-
         quit_action.activate.connect (quit);
+        add_action (quit_action);
+        
+        set_accels_for_action ("app.quit", { "<Control>q" });
+        
+        var granite_settings = Granite.Settings.get_default ();
+        var gtk_settings = Gtk.Settings.get_default ();
+
+        gtk_settings.gtk_application_prefer_dark_theme =
+            granite_settings.prefers_color_scheme == DARK;
+
+        granite_settings.notify["prefers-color-scheme"].connect (() => {
+            gtk_settings.gtk_application_prefer_dark_theme =
+                granite_settings.prefers_color_scheme == DARK;
+        });
     }
 
     protected override void activate () {
