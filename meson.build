@@ -1,7 +1,7 @@
 project(
   'io.github.ellie_commons.tomato',
   'vala', 'c',
-  version: '3.0'
+  version: '3.0.1'
 )
 
 gnome = import('gnome')
