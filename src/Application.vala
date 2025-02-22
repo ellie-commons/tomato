@@ -43,9 +43,9 @@ public class Tomato : Gtk.Application {
         var quit_action = new SimpleAction ("quit", null);
         quit_action.activate.connect (quit);
         add_action (quit_action);
-        
+
         set_accels_for_action ("app.quit", { "<Control>q" });
-        
+
         var granite_settings = Granite.Settings.get_default ();
         var gtk_settings = Gtk.Settings.get_default ();
 
